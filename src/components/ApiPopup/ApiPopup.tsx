@@ -35,7 +35,7 @@ const ApiPopup = () => {
 
   return isModalOpen ? (
     <PopupModal
-      title='Setup your API key'
+      title='Setup your AIGC2D API key'
       handleConfirm={handleConfirm}
       setIsModalOpen={setIsModalOpen}
       cancelButton={false}
@@ -61,7 +61,7 @@ const ApiPopup = () => {
             ns='api'
             components={[
               <a
-                href='https://platform.openai.com/account/api-keys'
+                href='https://www.aigc2d.com/app/forward-key'
                 className='link'
                 target='_blank'
               />,

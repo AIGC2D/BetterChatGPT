@@ -9,6 +9,7 @@ import SettingsMenu from '@components/SettingsMenu';
 import CollapseOptions from './CollapseOptions';
 import GoogleSync from '@components/GoogleSync';
 import { TotalTokenCostDisplay } from '@components/SettingsMenu/TotalTokenCost';
+import HeartIcon from '@icon/HeartIcon';
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || undefined;
 
@@ -25,11 +26,19 @@ const MenuOptions = () => {
       >
         {countTotalTokens && <TotalTokenCostDisplay />}
         {googleClientId && <GoogleSync clientId={googleClientId} />}
-        <AboutMenu />
+        {/*<AboutMenu />*/}
         <ImportExportChat />
         <Api />
         <SettingsMenu />
-        <Me />
+        {/*<Me />*/}
+        <a
+          className='flex py-2 px-2 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer text-sm'
+          href='https://www.aigc2d.com'
+          target='_blank'
+        >
+          <HeartIcon />
+          AIGC2D
+        </a>
       </div>
     </>
   );
