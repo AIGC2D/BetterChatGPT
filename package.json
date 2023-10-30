@@ -16,8 +16,8 @@
     "make": "yarn build && electron-builder"
   },
   "build": {
-    "appId": "better-chatgpt",
-    "productName": "Better ChatGPT",
+    "appId": "aigc2d-chatgpt",
+    "productName": "AIGC2D ChatGPT",
     "artifactName": "${os}-${name}-${version}-${arch}.${ext}",
     "directories": {
       "output": "release"

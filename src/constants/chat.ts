@@ -21,10 +21,13 @@ export const modelOptions: ModelOptions[] = [
   'gpt-3.5-turbo',
   'gpt-3.5-turbo-16k',
   'gpt-4-0613',
-  'gpt-4-32k-0613',
-  // 'gpt-3.5-turbo-0301',
-  // 'gpt-4-0314',
-  // 'gpt-4-32k-0314',
+  'gpt-4-32k',
+  'ernie-bot',
+  'ernie-bot-4',
+  'ernie-bot-turbo',
+  'spark-v1.5',
+  'spark-v2.0',
+  'spark-v3.0'
 ];
 
 export const defaultModel = 'gpt-3.5-turbo';
@@ -41,6 +44,12 @@ export const modelMaxToken = {
   'gpt-4-32k': 32768,
   'gpt-4-32k-0314': 32768,
   'gpt-4-32k-0613': 32768,
+  'ernie-bot': 4096,
+  'ernie-bot-4': 4096,
+  'ernie-bot-turbo': 4096,
+  'spark-v1.5': 4096,
+  'spark-v2.0': 4096,
+  'spark-v3.0': 4096
 };
 
 export const modelCost = {
@@ -87,6 +96,30 @@ export const modelCost = {
   'gpt-4-32k-0613': {
     prompt: { price: 0.06, unit: 1000 },
     completion: { price: 0.12, unit: 1000 },
+  },
+  'ernie-bot': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
+  'ernie-bot-4': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
+  'ernie-bot-turbo': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
+  'spark-v1.5': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
+  'spark-v2.0': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
+  'spark-v3.0': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
   },
 };
 
