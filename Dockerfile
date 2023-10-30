@@ -1,19 +1,30 @@
-FROM node:alpine
+FROM node:18-alpine AS base
 
-RUN addgroup -S appgroup && \
-  adduser -S appuser -G appgroup && \
-  mkdir -p /home/appuser/app && \
-  chown appuser:appgroup /home/appuser/app
-USER appuser
+# Install dependencies only when needed
+FROM base AS deps
 
-RUN yarn config set prefix ~/.yarn && \
-  yarn global add serve
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 
-WORKDIR /home/appuser/app
-COPY --chown=appuser:appgroup package.json yarn.lock ./
+COPY package.json yarn.lock ./
+
 RUN yarn install --frozen-lockfile
-COPY --chown=appuser:appgroup . .
+
+FROM base AS builder
+
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+
+COPY . .
+
 RUN yarn build
 
-EXPOSE 3000
-CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
+
+FROM nginx AS runner
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
